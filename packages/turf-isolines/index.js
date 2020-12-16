@@ -1,9 +1,12 @@
+// the license on marchingsquares is listed as AGPL 3.0, but the specific license file in the package
+// removes the viral portion of that license, allowing us to use it in an MIT licensed codebase
+
 import bbox from "@turf/bbox";
 import { coordEach } from "@turf/meta";
 import { collectionOf } from "@turf/invariant";
 import { multiLineString, featureCollection, isObject } from "@turf/helpers";
 import objectAssign from "object-assign";
-import isoContours from "./lib/marchingsquares-isocontours";
+import { isoLines } from "marchingsquares";
 import gridToMatrix from "./lib/grid-to-matrix";
 
 /**
@@ -94,7 +97,10 @@ function createIsoLines(
 
     var properties = objectAssign({}, commonProperties, breaksProperties[i]);
     properties[zProperty] = threshold;
-    var isoline = multiLineString(isoContours(matrix, threshold), properties);
+    var isoline = multiLineString(
+      isoLines(matrix, threshold, { noFrame: true }),
+      properties
+    );
 
     results.push(isoline);
   }

@@ -1,7 +1,7 @@
 import bearing from "@turf/bearing";
 import distance from "@turf/distance";
 import destination from "@turf/destination";
-import lineIntersects from "@turf/line-intersect";
+import intersectionPoints from "@turf/intersection-points";
 import { flattenEach } from "@turf/meta";
 import {
   point,
@@ -90,7 +90,7 @@ function nearestPointOnLine<G extends LineString | MultiLineString>(
         direction - 90,
         options
       );
-      const intersect = lineIntersects(
+      const intersect = intersectionPoints(
         lineString([
           perpendicularPt1.geometry.coordinates,
           perpendicularPt2.geometry.coordinates,

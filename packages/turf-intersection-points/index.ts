@@ -18,19 +18,19 @@ import rbush from "geojson-rbush";
 /**
  * Takes any LineString or Polygon GeoJSON and returns the intersecting point(s).
  *
- * @name lineIntersect
+ * @name intersectionPoints
  * @param {GeoJSON} line1 any LineString or Polygon
  * @param {GeoJSON} line2 any LineString or Polygon
  * @returns {FeatureCollection<Point>} point(s) that intersect both
  * @example
  * var line1 = turf.lineString([[126, -11], [129, -21]]);
  * var line2 = turf.lineString([[123, -18], [131, -14]]);
- * var intersects = turf.lineIntersect(line1, line2);
+ * var intersects = turf.intersectionPoints(line1, line2);
  *
  * //addToMap
  * var addToMap = [line1, line2, intersects]
  */
-function lineIntersect<
+function intersectionPoints<
   G1 extends LineString | MultiLineString | Polygon | MultiPolygon,
   G2 extends LineString | MultiLineString | Polygon | MultiPolygon
 >(
@@ -131,4 +131,4 @@ function intersects(line1: Feature<any>, line2: Feature<any>) {
   return null;
 }
 
-export default lineIntersect;
+export default intersectionPoints;

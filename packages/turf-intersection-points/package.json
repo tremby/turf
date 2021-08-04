@@ -1,7 +1,7 @@
 {
-  "name": "@turf/line-intersect",
+  "name": "@turf/intersection-points",
   "version": "6.5.0",
-  "description": "turf line-intersect module",
+  "description": "turf intersection-points module",
   "author": "Turf Authors",
   "contributors": [
     "Denis Carriere <@DenisCarriere>",

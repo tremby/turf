@@ -2,7 +2,7 @@ const fs = require("fs");
 const path = require("path");
 const load = require("load-json-file");
 const Benchmark = require("benchmark");
-const lineIntersect = require("./index");
+const intersectionPoints = require("./index");
 
 const directory = path.join(__dirname, "test", "in") + path.sep;
 const fixtures = fs.readdirSync(directory).map((filename) => {
@@ -22,10 +22,10 @@ const fixtures = fs.readdirSync(directory).map((filename) => {
  * polygons-with-holes x 9,739 ops/sec ±2.55% (85 runs sampled)
  * same-coordinates x 51,303 ops/sec ±4.23% (71 runs sampled)
  */
-const suite = new Benchmark.Suite("turf-line-intersect");
+const suite = new Benchmark.Suite("turf-intersection-points");
 for (const { name, geojson } of fixtures) {
   const [line1, line2] = geojson.features;
-  suite.add(name, () => lineIntersect(line1, line2));
+  suite.add(name, () => intersectionPoints(line1, line2));
 }
 
 suite.on("cycle", (e) => console.log(String(e.target))).run();

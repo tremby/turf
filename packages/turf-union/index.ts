@@ -8,7 +8,7 @@ import { Feature, Polygon, MultiPolygon, GeoJsonProperties } from "geojson";
  *
  * @name union
  * @param {Feature<Polygon|MultiPolygon>} polygon1 input Polygon feature
- * @param {Feature<Polygon|MultiPolygon>} polygon2 Polygon feature to difference from polygon1
+ * @param {Feature<Polygon|MultiPolygon>} polygon2 Polygon feature to union with polygon1
  * @param {Object} [options={}] Optional Parameters
  * @param {Object} [options.properties={}] Translate Properties to output Feature
  * @returns {Feature<(Polygon|MultiPolygon)>} a combined {@link Polygon} or {@link MultiPolygon} feature, or null if the inputs are empty
